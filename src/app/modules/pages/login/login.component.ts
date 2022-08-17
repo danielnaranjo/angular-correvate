@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
@@ -9,7 +9,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 })
 export class LoginComponent implements OnInit {
 
-  public form = new FormGroup({});
+  public form = new UntypedFormGroup({});
   public fields: FormlyFieldConfig[] = [
     {
       key: 'email',

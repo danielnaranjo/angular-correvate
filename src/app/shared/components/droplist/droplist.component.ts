@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { UtilsService } from 'src/app/services/utils.service';
 	styleUrls: ['./droplist.component.scss']
 })
 export class DroplistComponent implements OnInit {
-	dropListForm: FormGroup;
+	dropListForm: UntypedFormGroup;
 	@Input() dropListLabel: string = 'Selecciona tu empleador';
 	@Input() dropListButton: boolean = false;
 	@Input() dropListButtonPosition: string = 'bottom';
@@ -18,7 +18,7 @@ export class DroplistComponent implements OnInit {
 	public isSafari: boolean = false;
 
 	constructor(
-		private fb: FormBuilder,
+		private fb: UntypedFormBuilder,
 		public utilsService: UtilsService,
 	) {
 		this.dropListForm = this.fb.group({
