@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IUser } from '../shared/interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +9,11 @@ import { IUser } from '../shared/interfaces/user.interface';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  updateUser(user: string, body: any | IUser) {
-    return this.http.put<IUser>(`${environment.apiUrl}/user/${user}`, body);
+  updateUser(user: string, body: any) {
+    return this.http.put<any>(`${environment.apiUrl}/user/${user}`, body);
   }
 
-  getUser(options?: any): Observable<IUser[]> {
+  getUser(options?: any): Observable<any[]> {
     const paginator =
       options && options.size
         ? '?p=' + options.page + '&limit=' + options.size
@@ -22,16 +21,16 @@ export class ApiService {
     console.log(options);
     const search =
       options && options.query ? '&search=' + options.query.query : '';
-    return this.http.get<IUser[]>(
+    return this.http.get<any[]>(
       `${environment.apiUrl}/user${paginator}${search}`
     );
   }
 
   removeUser(user: string) {
-    return this.http.delete<IUser>(`${environment.apiUrl}/user/${user}`);
+    return this.http.delete<any>(`${environment.apiUrl}/user/${user}`);
   }
 
   createUser(body: any) {
-    return this.http.post<IUser>(`${environment.apiUrl}/user`, body);
+    return this.http.post<any>(`${environment.apiUrl}/user`, body);
   }
 }

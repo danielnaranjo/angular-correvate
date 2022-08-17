@@ -1,4 +1,5 @@
 export const base = {
+    HASH_KEY: '',
     env: 'dev',
     sentryDSN: '',
     googleAnalyticsKey: '',

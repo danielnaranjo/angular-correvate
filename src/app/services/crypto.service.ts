@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CryptoService {
-    private readonly KEY = 'Or4nG3Tr33!';
+    private readonly KEY = environment.HASH_KEY;
 
     constructor() { }
 

@@ -8,7 +8,6 @@ export interface Configuration {
 	validations?: object;
 	files?: object;
 	superUser?: SuperUser;
-	onBoarding?: object;
 }
 
 export interface CommonSettings {
@@ -69,50 +68,6 @@ export class AppConfigService {
 			},
 		},
 		modules: {
-			login: {
-				user: true,
-				backoffice: true,
-			},
-			openid: {
-				user: false,
-				backoffice: false,
-			},
-			help: {
-				user: true,
-				backoffice: true,
-			},
-			terms: {
-				user: true,
-				backoffice: true,
-			},
-			backoffice: {
-				user: true,
-				backoffice: true,
-			},
-			novedades: {
-				user: true,
-				backoffice: true,
-			},
-			external: {
-				user: false,
-				backoffice: false,
-			},
-			appoint: {
-				user: true,
-				backoffice: false,
-			},
-			vmd: {
-				user: true,
-				backoffice: true,
-			},
-			multitenant: {
-				user: false,
-				backoffice: false,
-			},
-			tas: {
-				user: false,
-				backoffice: false,
-			},
 			sentry: {
 				user: false,
 				backoffice: false,
@@ -121,245 +76,31 @@ export class AppConfigService {
 				user: false,
 				backoffice: false,
 			},
-			reports: {
-				user: false,
-				backoffice: false,
-			},
-			bussinessIntel: {
-				user: false,
-				backoffice: false,
-			},
-		},
-		onBoarding: {
-			gender: false,
-			idhr: false,
-			maritalStatus: false,
-		},
+		}
 	};
 
 	constructor() {
 		this.globals = [
 			{
 				name: 'local',
-				config: {
-					queryLimit: 100,
-					minLength: 2,
-					maxLength: 25,
-					pageSize: 25,
-					textareaLimit: 500,
-				},
-				modules: {
-					login: {
-						user: true,
-						backoffice: true,
-					},
-					openid: {
-						user: false,
-						backoffice: false,
-					},
-					help: {
-						user: true,
-						backoffice: true,
-					},
-					terms: {
-						user: true,
-						backoffice: true,
-					},
-					backoffice: {
-						user: true,
-						backoffice: true,
-					},
-					novedades: {
-						user: true,
-						backoffice: true,
-					},
-					external: {
-						user: false,
-						backoffice: false,
-					},
-					appoint: {
-						user: true,
-						backoffice: true,
-					},
-					vmd: {
-						user: true,
-						backoffice: true,
-					},
-					multitenant: {
-						user: true,
-						backoffice: true,
-					},
-					tas: {
-						user: false,
-						backoffice: true,
-					},
-					sentry: {
-						user: false,
-						backoffice: false,
-					},
-					ga: {
-						user: false,
-						backoffice: false,
-					},
-					reports: {
-						user: false,
-						backoffice: true,
-					},
-					bussinessIntel: {
-						user: false,
-						backoffice: false,
-					},
-				},
-				onBoarding: {
-					gender: false,
-					idhr: false,
-					maritalStatus: false,
-				},
-				files: {
-					uploadMaxLimit: 10,
-					uploadMaxSizeInKB: 55000,
-					allowed: ['*'],
-				},
+				config: this.base.config,
+				modules: this.base.modules,
+				files: this.base.files,
 				validations: this.base.validations,
+				onBoarding: this.base.onBoarding,
 			},
 			{
 				name: 'dev',
 				config: this.base.config,
-				modules: {
-					login: {
-						user: true,
-						backoffice: true,
-					},
-					openid: {
-						user: false,
-						backoffice: false,
-					},
-					help: {
-						user: true,
-						backoffice: true,
-					},
-					terms: {
-						user: true,
-						backoffice: true,
-					},
-					backoffice: {
-						user: true,
-						backoffice: true,
-					},
-					novedades: {
-						user: true,
-						backoffice: true,
-					},
-					external: {
-						user: false,
-						backoffice: false,
-					},
-					appoint: {
-						user: true,
-						backoffice: true,
-					},
-					vmd: {
-						user: true,
-						backoffice: true,
-					},
-					multitenant: {
-						user: true,
-						backoffice: true,
-					},
-					tas: {
-						user: true,
-						backoffice: true,
-					},
-					sentry: {
-						user: true,
-						backoffice: true,
-					},
-					ga: {
-						user: true,
-						backoffice: true,
-					},
-					reports: {
-						user: false,
-						backoffice: true,
-					},
-					bussinessIntel: {
-						user: false,
-						backoffice: false,
-					},
-				},
-				onBoarding: {
-					gender: false,
-					idhr: false,
-					maritalStatus: false,
-				},
+				modules: this.base.modules,
 				files: this.base.files,
 				validations: this.base.validations,
+				onBoarding: this.base.onBoarding,
 			},
 			{
 				name: 'qa',
 				config: this.base.config,
-				modules: {
-					login: {
-						user: true,
-						backoffice: true,
-					},
-					openid: {
-						user: false,
-						backoffice: false,
-					},
-					help: {
-						user: true,
-						backoffice: true,
-					},
-					terms: {
-						user: true,
-						backoffice: true,
-					},
-					backoffice: {
-						user: true,
-						backoffice: true,
-					},
-					novedades: {
-						user: true,
-						backoffice: true,
-					},
-					external: {
-						user: false,
-						backoffice: false,
-					},
-					appoint: {
-						user: true,
-						backoffice: true,
-					},
-					vmd: {
-						user: true,
-						backoffice: true,
-					},
-					multitenant: {
-						user: true,
-						backoffice: true,
-					},
-					tas: {
-						user: true,
-						backoffice: true,
-					},
-					sentry: {
-						user: true,
-						backoffice: true,
-					},
-					ga: {
-						user: true,
-						backoffice: true,
-					},
-					reports: {
-						user: false,
-						backoffice: false,
-					},
-					bussinessIntel: {
-						user: false,
-						backoffice: false,
-					},
-				},
+				modules: this.base.modules,
 				files: this.base.files,
 				validations: this.base.validations,
 				onBoarding: this.base.onBoarding,

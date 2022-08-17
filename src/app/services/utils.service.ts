@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ICustomer } from '../shared/interfaces/customer.interface';
-import { IUser } from '../shared/interfaces/user.interface';
 import { CryptoService } from './crypto.service';
 
 @Injectable({
