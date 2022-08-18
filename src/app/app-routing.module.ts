@@ -1,16 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PagesComponent } from './modules/pages/pages.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PagesComponent,
+    loadChildren: () => import('./modules/pages/pages.module').then(m => m.PagesModule),
     data: {
       description: 'Description Meta Tag Content',
     },
   },
-  { path: '', redirectTo: '/start', pathMatch: 'full' },
+  {
+    path: 'login',
+    data: {
+      description: 'Login page',
+    },
+    loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule),
+  },
+  {
+    path: 'register',
+    data: {
+      description: 'Register page',
+    },
+    loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule),
+  },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   // { path: '**', component: PageNotFoundComponent }
 ];
 

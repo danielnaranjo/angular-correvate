@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PagesComponent } from './pages.component';
+import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CommonModule } from '@angular/common';
@@ -8,13 +8,13 @@ import { CommonModule } from '@angular/common';
 export const pagesRoutes: Routes = [
 	{
 		path: '',
-		component: PagesComponent,
+		component: LoginComponent,
   }
 ];
 
 @NgModule({
   declarations: [
-    PagesComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule, 
@@ -24,4 +24,4 @@ export const pagesRoutes: Routes = [
   providers: [
   ]
 })
-export class PagesModule { }
+export class LoginModule { }

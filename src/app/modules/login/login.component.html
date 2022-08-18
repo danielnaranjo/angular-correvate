@@ -16,8 +16,20 @@
             Fill out the form below to sign up for the service. Already signed
             up? Then just <a class="blue" href="/register">Log In</a>
           </p>
-          <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <formly-form [form]="form" [fields]="fields"> </formly-form>
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                formControlName="name"
+                placeholder="Enter your name"
+              />
+              <small class="form-text text-muted">
+                We'll never share your name with anyone else.
+              </small>
+            </div>
             <p class="mt-5">
               <button class="form-control-submit-button" type="submit">
                 Entrar
