@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://sheets.googleapis.com/v4/spreadsheets/161QqUQZiXKRcMMuY4zn-P-e5kfGKobGDbsYkpW0y_Eg/values/venemprende?key=AIzaSyAhWer8N4mKOzqmMnFe2XT77pPU0qxEQNE",
+    "target": "https://petstore.swagger.io/v2",
     "secure": true,
     "changeOrigin": true,
     "pathRewrite": {

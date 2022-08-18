@@ -1,9 +1,16 @@
 export const base = {
-    HASH_KEY: '',
+    salt: '',
     env: 'dev',
     sentryDSN: '',
     googleAnalyticsKey: '',
-    apiUrl: 'https://api.jsonbin.io/v3/b',
+    apiUrl: {
+        //url: 'https://petstore.swagger.io/v2',
+        url: '/api',
+        isRequiredHeader: false,
+        requiredHeader: {
+            'special-key': '1234567890',
+        }
+    },
     integrationUrl: '',
     cloudinaryApi: '',
     branding: 'boilerplate',

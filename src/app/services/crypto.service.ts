@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
     providedIn: 'root'
 })
 export class CryptoService {
-    private readonly KEY = environment.HASH_KEY;
+    private readonly KEY = environment.salt;
 
     constructor() { }
 

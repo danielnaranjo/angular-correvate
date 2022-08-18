@@ -9,28 +9,28 @@ import { environment } from 'src/environments/environment';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  updateData(user: string, body: any) {
-    return this.http.put<any>(`${environment.apiUrl}/user/${user}`, body);
-  }
-
-  getData(options?: any): Observable<any[]> {
+  getData(url: string, options?: any): Observable<any[]> {
     const paginator =
       options && options.size
         ? '?p=' + options.page + '&limit=' + options.size
         : '';
-    console.log(options);
+    console.log(url,options);
     const search =
       options && options.query ? '&search=' + options.query.query : '';
     return this.http.get<any[]>(
-      `${environment.apiUrl}/user${paginator}${search}`
+      `${environment.apiUrl.url}/${url}${paginator}${search}`
     );
   }
 
+  updateData(user: string, body: any) {
+    return this.http.put<any>(`${environment.apiUrl.url}/user/${user}`, body);
+  }
+
   removeData(user: string) {
-    return this.http.delete<any>(`${environment.apiUrl}/user/${user}`);
+    return this.http.delete<any>(`${environment.apiUrl.url}/user/${user}`);
   }
 
   createData(body: any) {
-    return this.http.post<any>(`${environment.apiUrl}/user`, body);
+    return this.http.post<any>(`${environment.apiUrl.url}/user`, body);
   }
 }

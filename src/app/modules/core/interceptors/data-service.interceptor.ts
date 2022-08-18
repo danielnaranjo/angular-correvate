@@ -16,11 +16,15 @@ export class DataServiceInterceptor implements HttpInterceptor {
 
   intercept (req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+    const customHeader = {
+      'Content-Type':  'application/json',
+      'Access-Control-Allow-Origin': '*'
+    };
+    if (environment.apiUrl.isRequiredHeader) {
+      customHeader[`${Object.keys(environment.apiUrl.requiredHeader)}`] = Object.values(environment.apiUrl.requiredHeader).toString();
+    }
     const newHeaders = req.clone({
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Access-Control-Allow-Origin': '*'
-      })
+      headers: new HttpHeaders(customHeader)
     });
     
     return next.handle(newHeaders);
