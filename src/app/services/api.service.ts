@@ -9,11 +9,11 @@ import { environment } from 'src/environments/environment';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  updateUser(user: string, body: any) {
+  updateData(user: string, body: any) {
     return this.http.put<any>(`${environment.apiUrl}/user/${user}`, body);
   }
 
-  getUser(options?: any): Observable<any[]> {
+  getData(options?: any): Observable<any[]> {
     const paginator =
       options && options.size
         ? '?p=' + options.page + '&limit=' + options.size
@@ -26,11 +26,11 @@ export class ApiService {
     );
   }
 
-  removeUser(user: string) {
+  removeData(user: string) {
     return this.http.delete<any>(`${environment.apiUrl}/user/${user}`);
   }
 
-  createUser(body: any) {
+  createData(body: any) {
     return this.http.post<any>(`${environment.apiUrl}/user`, body);
   }
 }

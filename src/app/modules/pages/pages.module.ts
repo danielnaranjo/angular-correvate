@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomTemplateModule } from '../../templates/templates.module';
 import { PagesComponent } from './pages.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -28,7 +27,6 @@ export const pagesRoutes: Routes = [
   ],
   imports: [
     CommonModule, 
-    CustomTemplateModule, 
     RouterModule.forChild(pagesRoutes),
     SharedModule,
     ReactiveFormsModule,

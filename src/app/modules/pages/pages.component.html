@@ -1,12 +1,8 @@
 <ng-container *ngIf="data" [ngSwitch]="data.type">
     <ng-container *ngSwitchCase="'commerce'">
-        <reusable-ecommerce></reusable-ecommerce>
-    </ng-container>
-    <ng-container *ngSwitchCase="'product'">
-        <reusable-product></reusable-product>
-    </ng-container>
-    <ng-container *ngSwitchCase="'landing'">
-        <reusable-landing [client]="data"></reusable-landing>
+        <p>
+            {{ data.name }} {{ data.type }} is works!
+        </p>
     </ng-container>
     <ng-container *ngSwitchDefault>
         <p>

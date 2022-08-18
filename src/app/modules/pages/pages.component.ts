@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ICustomer } from "../../shared/interfaces/customer.interface";
-import { ClientService } from "../../services/client.service";
 import { MetaService } from "../../services/meta.service";
-import { UtilsService } from "src/app/services/utils.service";
+import { ApiService } from "src/app/services/api.service";
 import { Subscription } from "rxjs";
 
 @Component({
@@ -12,15 +10,14 @@ import { Subscription } from "rxjs";
   styleUrls: ["./pages.component.scss"]
 })
 export class PagesComponent implements OnInit, OnDestroy {
-  public data: ICustomer | any;
+  public data: any;
   client: Subscription;
 
   constructor(
-    private clientService: ClientService,
     private route: ActivatedRoute,
     private meta: MetaService,
     private router: Router,
-    private utilsService: UtilsService,
+    private apiService: ApiService,
     ) {
       
   }
@@ -32,7 +29,7 @@ export class PagesComponent implements OnInit, OnDestroy {
   }
 
   private getData(user?: string) {
-    this.client = this.clientService.getClients().subscribe((response) =>{
+    this.client = this.apiService.getData().subscribe((response) =>{
       this.data = response.find((e: any) => e.slug === user);
       if (this.data) {
         this.meta.updateTitle(this.data.meta?.title ? this.data.meta?.title : this.data.name, this.data.setting.isWhiteBrand ?? true);
