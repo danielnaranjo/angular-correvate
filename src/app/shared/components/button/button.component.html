@@ -1,9 +1,0 @@
-<button [class]="isStyled" [disabled]="isDisabled" (click)="isAction()" [attr.qa-id]= "qaID.AADN">
-    <ng-container *ngIf="isLoading">
-        <i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-        {{inProgress}}
-    </ng-container>
-    <ng-container *ngIf="!isLoading">
-        {{label}}
-    </ng-container>
-</button>
