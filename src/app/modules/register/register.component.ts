@@ -12,7 +12,6 @@ import { RegexCommon } from 'src/app/services/regex.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit, OnDestroy {
-  public data: any;
   client: Subscription;
   registerForm : FormGroup;
   public error: string | null;
@@ -45,12 +44,12 @@ export class RegisterComponent implements OnInit, OnDestroy {
     .subscribe((response) =>{
       console.log('log', response);
       this.router.navigate(['/login'])
+      this.registerForm.reset();
     });
   }
 
   ngOnDestroy(): void {
-    this.data = {};
     this.client.unsubscribe();
-}
+  }
 
 }

@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   loadChildren: () => import('./modules/pages/pages.module').then(m => m.PagesModule),
-  //   data: {
-  //     description: 'Description Meta Tag Content',
-  //   },
-  // },
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+    data: {
+      description: 'Administrator page',
+    },
+  },
   {
     path: 'login',
     data: {
