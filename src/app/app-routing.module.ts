@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./modules/pages/pages.module').then(m => m.PagesModule),
-    data: {
-      description: 'Description Meta Tag Content',
-    },
-  },
+  // {
+  //   path: '',
+  //   loadChildren: () => import('./modules/pages/pages.module').then(m => m.PagesModule),
+  //   data: {
+  //     description: 'Description Meta Tag Content',
+  //   },
+  // },
   {
     path: 'login',
     data: {
@@ -23,7 +23,7 @@ const routes: Routes = [
     },
     loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule),
   },
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   // { path: '**', component: PageNotFoundComponent }
 ];
 
