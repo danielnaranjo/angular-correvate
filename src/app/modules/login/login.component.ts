@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MetaService } from 'src/app/services/meta.service';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +10,11 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
-  public fields: any;
   public error: string | null;
 
   constructor(
 		private fb: FormBuilder,
+    private meta: MetaService,
   ) {
     this.loginForm = this.fb.group({
 			username: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(255)]],
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('[form]', this.fields);
+    this.meta.updateTitle('Login');
   }
 
   onSubmit() {

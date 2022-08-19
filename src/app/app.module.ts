@@ -13,6 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterModule } from './modules/register/register.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { LoginModule } from './modules/login/login.module';
+import { NgxsModule } from '@ngxs/store';
+import { environment } from 'src/environments/environment';
+import { RegexCommon } from './services/regex.service';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { LoginModule } from './modules/login/login.module';
     LoginModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxsModule.forRoot([], {
+      developmentMode: !environment.production
+    })
   ],
   providers: [
     ApiService, 
@@ -35,6 +41,7 @@ import { LoginModule } from './modules/login/login.module';
     UtilsService, 
     MetaService,
     { provide: HTTP_INTERCEPTORS, useClass: DataServiceInterceptor, multi: true },
+    RegexCommon,
   ],
   bootstrap: [AppComponent],
 })

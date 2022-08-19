@@ -22,15 +22,15 @@ export class ApiService {
     );
   }
 
-  updateData(user: string, body: any) {
-    return this.http.put<any>(`${environment.apiUrl.url}/user/${user}`, body);
+  updateData(url: string, user: string, body: any) {
+    return this.http.put<any>(`${environment.apiUrl.url}/${url}/${user}`, body);
   }
 
-  removeData(user: string) {
-    return this.http.delete<any>(`${environment.apiUrl.url}/user/${user}`);
+  removeData(url: string, user: string) {
+    return this.http.delete<any>(`${environment.apiUrl.url}/${url}/${user}`);
   }
 
-  createData(body: any) {
-    return this.http.post<any>(`${environment.apiUrl.url}/user`, body);
+  postData(url: string, body: any) {
+    return this.http.post<any>(`${environment.apiUrl.url}/${url}`, body);
   }
 }
