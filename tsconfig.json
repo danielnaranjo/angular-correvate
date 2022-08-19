@@ -22,14 +22,14 @@
     ],
 		"paths": {
 			"@core/*": [
-        "modules/core/*"
+        "src/app/modules/core/*"
 			],
 			"@services/*": [
-        "services/*"
+        "src/app/services/*"
 			],
       "@shared/*": [
-        "shared/*"
-			],
+        "src/app/shared/*"
+      ],
 		},
 		"skipLibCheck": true,
   },
