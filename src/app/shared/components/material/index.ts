@@ -1,4 +1,3 @@
-
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,6 +17,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 
 export const MaterialModulesList = [
     MatFormFieldModule,
@@ -39,4 +40,6 @@ export const MaterialModulesList = [
     MatBadgeModule,
     MatGridListModule,
     MatSidenavModule,
+    MatPaginatorModule,
+    MatDialogModule,
 ];

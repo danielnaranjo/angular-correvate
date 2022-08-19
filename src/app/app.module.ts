@@ -16,14 +16,19 @@ import { LoginModule } from './modules/login/login.module';
 import { NgxsModule } from '@ngxs/store';
 import { environment } from 'src/environments/environment';
 import { RegexCommon } from './services/regex.service';
+import { PipesModule } from './shared/pipes/pipes.module';
+import { MaterialModulesList } from 'src/app/shared/components/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     CommonModule, 
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserAnimationsModule,
     AppRoutingModule,
     PagesModule,
     RegisterModule,
@@ -33,7 +38,9 @@ import { RegexCommon } from './services/regex.service';
     ReactiveFormsModule,
     NgxsModule.forRoot([], {
       developmentMode: !environment.production
-    })
+    }),
+    PipesModule,
+    MaterialModulesList,
   ],
   providers: [
     ApiService, 
@@ -44,5 +51,6 @@ import { RegexCommon } from './services/regex.service';
     RegexCommon,
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
