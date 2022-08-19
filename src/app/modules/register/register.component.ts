@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IUser } from '@shared/interfaces/user.interface';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { MetaService } from 'src/app/services/meta.service';
@@ -40,7 +41,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     console.log('onSubmit', this.registerForm.value);
-    this.client = this.apiService.postData('user', this.registerForm.value)
+    const values: IUser = this.registerForm.value;
+    this.client = this.apiService.postData('user', values)
     .subscribe((response) =>{
       console.log('log', response);
       this.router.navigate(['/login'])

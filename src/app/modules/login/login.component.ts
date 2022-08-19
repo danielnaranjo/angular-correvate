@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ILogin } from '@shared/interfaces/user.interface';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { MetaService } from 'src/app/services/meta.service';
@@ -33,7 +34,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     console.log('onSubmit', this.loginForm.value);
-    this.client = this.apiService.getData('user/login', this.loginForm.value)
+    const values: ILogin = this.loginForm.value;
+    this.client = this.apiService.getData('user/login', values)
     .subscribe((response) =>{
       console.log('log', response);
       this.router.navigate(['/admin'])
