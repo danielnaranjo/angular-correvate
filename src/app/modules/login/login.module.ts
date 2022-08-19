@@ -3,7 +3,8 @@ import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CommonModule } from '@angular/common';
-
+import { MaterialModulesList } from 'src/app/shared/components/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export const pagesRoutes: Routes = [
 	{
@@ -20,6 +21,9 @@ export const pagesRoutes: Routes = [
     CommonModule, 
     RouterModule.forChild(pagesRoutes),
     SharedModule,
+    MaterialModulesList,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
   ]

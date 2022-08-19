@@ -10,13 +10,14 @@ export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
   public fields: any;
+  public error: string | null;
 
   constructor(
 		private fb: FormBuilder,
   ) {
     this.loginForm = this.fb.group({
 			username: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(255)]],
-			password: ['']
+			password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(255)]],
 		});
   }
 
