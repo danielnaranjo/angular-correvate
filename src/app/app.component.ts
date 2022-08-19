@@ -3,8 +3,8 @@ import { MetaService } from "./services/meta.service";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: '<router-outlet></router-outlet>',
+  styles: [`* { margin: 0; padding: 0; }`]
 })
 export class AppComponent {
   title = 'angular-boilerplate';
