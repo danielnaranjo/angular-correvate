@@ -20,6 +20,8 @@ import { PipesModule } from './shared/pipes/pipes.module';
 import { MaterialModulesList } from 'src/app/shared/components/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,12 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     ReactiveFormsModule,
     NgxsModule.forRoot([], {
       developmentMode: !environment.production
+    }),
+    NgxsReduxDevtoolsPluginModule.forRoot({
+      disabled: environment.production
+    }),
+    NgxsLoggerPluginModule.forRoot({
+      disabled: environment.production
     }),
     PipesModule,
     MaterialModulesList,
